@@ -1,7 +1,6 @@
-from functools import reduce
-
-f = lambda x, y: x/y
-
-asd = reduce(f, range(1, 11))
-
-print(asd)
+import pyautogui
+for i in range(10):  # Move mouse in a square.
+    pyautogui.move(100, 0, duration=0.25)  # right
+    pyautogui.move(0, 100, duration=0.25)  # down
+    pyautogui.move(-100, 0, duration=0.25)  # left
+    pyautogui.move(0, -100, duration=0.25)  # up
