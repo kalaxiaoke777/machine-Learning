@@ -55,4 +55,4 @@ if not r.exists('name'):
 else:
     print("The list still exists.")
 print(f"Element at index 0: {r.get("name1")}")
-r.close()
+r.close();
