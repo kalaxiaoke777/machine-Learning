@@ -56,3 +56,47 @@ else:
     print("The list still exists.")
 print(f"Element at index 0: {r.get("name1")}")
 r.close()
+
+# alter table name rename as name1;
+
+# alter table name1 add name1 varchar(1024) not null default '1';
+
+# ALTER TABLE name1 MODIFY name1 VARCHAR(11);
+
+# ALTER TABLE name1 CHANGE name1 age1 VARCHAR(11);
+
+
+# CREATE TABLE Employees (
+#     EmployeeID INT PRIMARY KEY,
+#     Email VARCHAR(100) UNIQUE,
+#     Name VARCHAR(100)
+# );
+/*
+	1. 定义外键key
+	2. 给外键添加约束（执行引用）references 引用
+*/
+-- 创建年级表
+# CREATE TABLE `grade`(
+# 	`gradeid` INT(10) NOT NULL COMMENT '年级id',
+# 	`gradename` VARCHAR(50) NOT NULL COMMENT '年纪名称',
+# 	PRIMARY KEY (`gradeid`)
+# )ENGINE=INNODB DEFAULT CHARSET=utf8;
+#
+# CREATE TABLE IF NOT EXISTS `student`(
+# 	`id` INT(4) NOT NULL AUTO_INCREMENT COMMENT '学号',
+# 	`name` VARCHAR(30) NOT NULL DEFAULT '匿名' COMMENT '姓名',
+# 	`pwd` VARCHAR(20) NOT NULL DEFAULT '123456' COMMENT '密码',
+# 	`sex` VARCHAR(2)	NOT NULL DEFAULT '女' COMMENT '性别',
+# 	`birthday` DATETIME DEFAULT NULL COMMENT '出生日期',
+# 	`address` VARCHAR(100) DEFAULT NULL COMMENT '家庭住址',
+# 	`email` VARCHAR(50) DEFAULT NULL COMMENT '邮箱',
+# 	`gradeid` INT(10) NOT NULL COMMENT '学生的年级',
+# 	PRIMARY KEY (`id`),
+# 	KEY `FK1_gradeid` (`gradeid`),
+# 	CONSTRAINT `FK1_gradeid` FOREIGN KEY (`gradeid`) REFERENCES `grade`(`gradeid`)
+# )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+# insert into grade (gradeid,gradename) value (1,'一年');
+# insert into grade (gradeid,gradename) value (2,'四年'),(3,'二年'),(4,'三年');
+
+update grade set gradename = 'bai' where gradeid = 1;
