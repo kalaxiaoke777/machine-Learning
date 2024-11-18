@@ -100,3 +100,19 @@ r.close()
 # insert into grade (gradeid,gradename) value (2,'四年'),(3,'二年'),(4,'三年');
 
 update grade set gradename = 'bai' where gradeid = 1;
+
+select
+    Sname,
+    s1.*
+from
+    Student s2,
+    (select
+        s.SId,
+        avg(s.score) avg1
+    from
+        SC s
+    group by
+        s.SId
+    having avg1>=60) s1
+where
+    s2.SId = s1.SId
