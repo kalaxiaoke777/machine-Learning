@@ -116,3 +116,12 @@ from
     having avg1>=60) s1
 where
     s2.SId = s1.SId
+
+
+select st.*
+from (select s.SId, max(if(s.CId = '01', s.CId, null)) 01c, max(if(s.CId = '02', s.CId, null)) 02c
+      from SC s
+      group by s.SId) t , Student st
+where t.SId = st.SId
+and t.01c is not null
+and t.02c is not null
