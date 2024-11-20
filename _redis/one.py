@@ -125,3 +125,7 @@ from (select s.SId, max(if(s.CId = '01', s.CId, null)) 01c, max(if(s.CId = '02',
 where t.SId = st.SId
 and t.01c is not null
 and t.02c is not null
+
+select s.*, t.CId c1
+      from Student s,
+           (select * from SC s where s.SId = '01') t
