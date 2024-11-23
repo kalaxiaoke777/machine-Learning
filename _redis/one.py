@@ -98,6 +98,12 @@ r.close()
 
 # insert into grade (gradeid,gradename) value (1,'一年');
 # insert into grade (gradeid,gradename) value (2,'四年'),(3,'二年'),(4,'三年');
+select * from
+(select s.SId, avg(s.score) avs
+from SC s
+group by s.SId
+order by avs desc) a
+left join Student C on a.SId = C.SId
 
 update grade set gradename = 'bai' where gradeid = 1;
 
