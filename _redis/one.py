@@ -135,3 +135,12 @@ and t.02c is not null
 select s.*, t.CId c1
       from Student s,
            (select * from SC s where s.SId = '01') t
+
+
+select tc.t_id,cs.c_id,round(avg(sc.s_score),2) avg_s from teacher tc
+left join course cs
+on tc.t_id = cs.t_id
+left join score sc
+on cs.c_id = sc.c_id
+group by cs.c_id, tc.t_id
+order by avg_s desc
