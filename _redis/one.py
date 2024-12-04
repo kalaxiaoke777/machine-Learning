@@ -144,3 +144,9 @@ left join score sc
 on cs.c_id = sc.c_id
 group by cs.c_id, tc.t_id
 order by avg_s desc
+
+select sd.s_name,cr.c_name,sr.s_score from student sd
+left join score sr
+on sd.s_id = sr.s_id
+left join course cr
+on cr.c_id = sr.c_id
