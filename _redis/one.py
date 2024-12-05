@@ -150,3 +150,17 @@ left join score sr
 on sd.s_id = sr.s_id
 left join course cr
 on cr.c_id = sr.c_id
+
+
+select sd.*,sr.s_score from teacher tc
+         left join course cr
+         on tc.t_id = cr.t_id
+         left join score sr
+         on cr.c_id = sr.c_id
+         left join  student sd
+         on sr.s_id = sd.s_id
+where tc.t_name = '张三'
+order by sr.s_score desc
+limit 1
+
+
